@@ -1,0 +1,106 @@
+<h1>Movie Component</h1>
+<mat-expansion-panel>
+<mat-expansion-panel-header>
+<mat-panel-title>
+Add Movie
+</mat-panel-title>
+</mat-expansion-panel-header>
+<div class="movie_id">
+<mat-form-field>
+<mat-label>Enter Movie ID</mat-label>
+<input matInput placeholder="enter ID" name="movieId" [(ngModel)]="movieObj.movieId" required>
+<!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+</mat-form-field>
+</div>
+
+<div class="theatre_Name">
+<mat-form-field>
+<mat-label>Enter Theatre Name</mat-label>
+<input matInput placeholder="enter name" name="theatreName" [(ngModel)]="movieObj.theatreName" required>
+<!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+</mat-form-field>
+</div>
+
+<div class="movie_Name">
+<mat-form-field>
+<mat-label>Enter Movie Name</mat-label>
+<input matInput placeholder="enter Name" name="movieName" [(ngModel)]="movieObj.movieName" required>
+<!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+</mat-form-field>
+</div>
+
+<div class="total_Seats_Booked">
+    <mat-form-field>
+    <mat-label>Enter Total Seats Booked</mat-label>
+    <input matInput placeholder="enter number" name="totalSeatsBooked" [(ngModel)]="movieObj.totalSeatsBooked" required>
+    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+    </mat-form-field>
+    </div>
+
+<mat-action-row>
+<div class="container-fluid padding">
+<div class="row">
+<div class="example-button-container">
+<button (click)="addMovieDetails()" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+<mat-icon>plus_one</mat-icon>
+</button>
+</div>
+</div>
+</div>
+</mat-action-row>
+</mat-expansion-panel>
+<br>
+*****************************************************************************************
+<br>
+<button (click)="viewAllMovies()" mat-raised-button color="primary">View All Movies</button>
+
+<br><hr><br>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+<ng-container matColumnDef="movieId">
+<th mat-header-cell *matHeaderCellDef>Movie ID </th>
+<td mat-cell *matCellDef="let movieObj"><a routerLink="/ticket/movieObj.movieId">{{movieObj.movieId}}</a> </td>
+</ng-container>
+
+
+<ng-container matColumnDef="movieName">
+<th mat-header-cell *matHeaderCellDef>Movie Name </th>
+<td mat-cell *matCellDef="let movieObj"> {{movieObj.movieName}} </td>
+</ng-container>
+
+
+<ng-container matColumnDef="theatreName">
+<th mat-header-cell *matHeaderCellDef>Theatre Name</th>
+<td mat-cell *matCellDef="let movieObj"> {{movieObj.theatreName}} </td>
+</ng-container>
+
+<ng-container matColumnDef="totalSeatsBooked">
+<th mat-header-cell *matHeaderCellDef>Total Seats Booked</th>
+<td mat-cell *matCellDef="let movieObj"> {{movieObj.totalSeatsBooked}} </td>
+</ng-container>
+
+<ng-container matColumnDef="action">
+<th mat-header-cell *matHeaderCellDef>Action</th>
+<td mat-cell *matCellDef="let movieObj">
+
+<button (click)="deleteMovie(movieObj.movieId)" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+<mat-icon>delete</mat-icon>
+</button>
+</td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<br>
+<hr><hr>
+<br>
+
+<h3>Search By ID</h3>
+
+
+
+
+{{response}}
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -1,0 +1,133 @@
+<p>signup works!</p>
+<div class="container">
+
+    <div class="row" style="margin-top:40px">
+
+        <div class="col-md-6 offset-md-3">
+
+            <mat-card id="parent">
+
+                <h1 class="text-center">Register Here!</h1>
+                <!-- {{loginData|json}} -->
+                <form class="form parent" [formGroup]="signUpData" (ngSubmit)="submitForm()">
+
+
+                    <mat-card-content>
+
+                        <mat-form-field appearance="outline" class="full-width">
+
+                            <mat-label>Username </mat-label>
+                            <input matInput placeholder="username" formControlName="username" [class.invalid]="
+                
+                         signUpData.get('username')?.invalid &&
+                
+                         (signUpData.get('username')?.dirty ||
+                
+                        signUpData.get('username')?.touched) " />
+                        </mat-form-field>
+
+
+                        <span *ngIf="
+                  signUpData.get('username')?.hasError('required') &&
+                
+                (signUpData.get('username')?.dirty ||
+                
+              signUpData.get('username')?.touched )
+                
+             " class="error">This field is required.</span>
+                        <br>
+
+
+
+                        <mat-form-field appearance="outline" class="full-width">
+
+                            <mat-label>Pasword </mat-label>
+                            <input matInput placeholder="password" formControlName="password">
+                        </mat-form-field>
+
+                        <span *ngIf="
+                           signUpData.get('password')?.hasError('required') &&
+                           (signUpData.get('password')?.dirty ||
+                
+                           signUpData.get('password')?.touched )
+                
+                 " class="error">This field is required.</span>
+                        <br>
+
+                        <!-- <a class="forget" href="#">Forget Password?</a>
+                        <a class="account" href="#">Don't Have a Account? SignUp</a> -->
+
+                        <!-- <mat-form-field appearance="outline" class="full-width">
+
+                            <mat-label>Confirm Password </mat-label>
+                            <input matInput placeholder="Confirm Password" formControlName="confirmPassword">
+                        </mat-form-field>
+
+                        <span *ngIf="
+                           signUpData.get('confirmPassword')?.hasError('required') &&
+                           (signUpData.get('confirmPassword')?.dirty ||
+                
+                           signUpData.get('confirmPassword')?.touched )
+                
+                 " class="error">This field is required.</span>
+                        <br> -->
+
+
+                        <mat-form-field appearance="outline" class="full-width">
+
+                            <mat-label>Email </mat-label>
+                            <input matInput placeholder="Email" formControlName="emailId">
+                        </mat-form-field>
+
+                        <span *ngIf="
+                           signUpData.get('emailId')?.hasError('required') &&
+                           (signUpData.get('emailId')?.dirty ||
+                
+                           signUpData.get('emailId')?.touched )
+                
+                 " class="error">This field is required.</span>
+                        <br>
+
+                        <mat-form-field appearance="outline" class="full-width">
+
+                            <mat-label>Secret Question</mat-label>
+                            <input matInput placeholder="Enter Your Fav Sport" formControlName="favSport">
+                            <!-- <mat-select formControlName="secretQuestion" placeholder="">
+                                <mat-option>
+
+                                    Pet name
+                                </mat-option>
+                            </mat-select> -->
+                        </mat-form-field>
+
+                        <span *ngIf="
+                           signUpData.get('favSport')?.hasError('required') &&
+                           (signUpData.get('favSport')?.dirty ||
+                
+                           signUpData.get('favSport')?.touched )
+                
+                 " class="error">This field is required.</span>
+                        <br>
+
+                        <a class="all" routerLink="/login">Already Have A Account? Click Here</a>
+
+
+
+
+                        <br>
+                        <br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-outline-primary">Resigter</button>
+                            <button type="reset" class="btn btn-outline-danger" style="margin-left:40px">Clear</button>
+                        </div>
+                    </mat-card-content>
+
+                </form>
+
+            </mat-card>
+
+        </div>
+
+    </div>
+
+</div>

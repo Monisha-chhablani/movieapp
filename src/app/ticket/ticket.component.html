@@ -1,0 +1,88 @@
+<p>ticket works!</p>
+<h1>Ticket</h1>
+
+
+<mat-expansion-panel>
+<mat-expansion-panel-header>
+<mat-panel-title>
+ Add Ticket
+</mat-panel-title>
+
+</mat-expansion-panel-header>
+
+<div class="movie_id">
+<mat-form-field>
+<mat-label>Enter Movie ID</mat-label>
+<input matInput placeholder="enter ID" name="movie_id_fk" [(ngModel)]="ticketObj.movie_id_fk" required>
+<!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+</mat-form-field>
+</div>
+
+ 
+
+
+<div class="seats_Booked">
+<mat-form-field>
+<mat-label>Enter Seats</mat-label>
+<input matInput placeholder="enter Seats" name="seatsBooked" [(ngModel)]="ticketObj.seatsBooked" required>
+<!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+</mat-form-field>
+</div>
+
+ 
+
+
+<mat-action-row>
+<div class="container-fluid padding">
+<div class="row">
+<div class="example-button-container">
+<button (click)="addTicket(ticketObj.movie_id_fk)" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+<mat-icon>plus_one</mat-icon>
+</button>
+</div>
+</div>
+</div>
+</mat-action-row>
+</mat-expansion-panel>
+<br>
+<br>
+    *****************************************************************************************
+<br>
+<!-- <button (click)="getAllTickets()" mat-raised-button color="primary">View All Tickets</button> -->
+
+ 
+
+ <br><hr><br>
+<table mat-table  class="mat-elevation-z8"> 
+
+ 
+
+  
+<ng-container matColumnDef="transactionId">
+<th mat-header-cell *matHeaderCellDef>Transaction ID </th>
+<td mat-cell *matCellDef="let ticketObj">{{ticketObj.transactionId}}  </td>
+</ng-container>
+
+
+<ng-container matColumnDef="movie_id_fk">
+<th mat-header-cell *matHeaderCellDef>Movie ID </th>
+<td mat-cell *matCellDef="let ticketObj"> {{ticketObj.movie_id_fk}} </td>
+</ng-container>
+
+
+
+
+<ng-container matColumnDef="seatsBooked">
+<th mat-header-cell *matHeaderCellDef>Seats Booked</th>
+<td mat-cell *matCellDef="let ticketObj"> {{ticketObj.seatsBooked}} </td>
+</ng-container>
+
+ 
+
+     
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<br>
+<hr><hr>
+<br>
